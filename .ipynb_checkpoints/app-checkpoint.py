@@ -71,11 +71,17 @@ with tab2:
     st.caption(group_options[group_choice])
 
     if "Group A" in group_choice:
-        selected_cat = st.selectbox("Select a category", group_a_df["catalog_name"].unique())
+        #selected_cat = st.selectbox("Select a category", group_a_df["catalog_name"].unique())
+        search_input = st.text_input("Search for a category")
+        filtered_categories = [cat for cat in group_a_df["catalog_name"].unique() if search_input.lower() in cat.lower()]
+        selected_cat = st.selectbox("Choose a category", filtered_categories)
         recos = group_a_df[group_a_df["catalog_name"] == selected_cat]
         explanation = "These are the highest rated reco products in this category"
     else:
-        selected_cat = st.selectbox("Select a category", group_b_df["catalog_name"].unique())
+        #selected_cat = st.selectbox("Select a category", group_b_df["catalog_name"].unique())
+        search_input = st.text_input("Search for a category")
+        filtered_categories = [cat for cat in group_b_df["catalog_name"].unique() if search_input.lower() in cat.lower()]
+        selected_cat = st.selectbox("Choose a category", filtered_categories)
         recos = group_b_df[group_b_df["catalog_name"] == selected_cat]
         explanation = "These reco products are similar to what customers already love"
 
@@ -93,3 +99,8 @@ with tab2:
                     st.markdown(f"Rating: {row['reco_rating']}")
                 #st.markdown(f"[View Product]({row['reco_link']})")
             st.markdown("---")
+
+    
+search_input = st.text_input("Search for a category")
+filtered_categories = [cat for cat in group_df["category_name"].unique() if search_input.lower() in cat.lower()]
+selected_cat = st.selectbox("Choose a category", filtered_categories)
