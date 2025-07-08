@@ -94,7 +94,4 @@ with tab2:
                 #st.markdown(f"[View Product]({row['reco_link']})")
             st.markdown("---")
 
-    
-search_input = st.text_input("Search for a category")
-filtered_categories = [cat for cat in group_df["category_name"].unique() if search_input.lower() in cat.lower()]
-selected_cat = st.selectbox("Choose a category", filtered_categories)
+
