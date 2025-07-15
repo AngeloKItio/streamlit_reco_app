@@ -15,9 +15,9 @@ st.title("AI-Powered cold start products recommendation")
 # Tabs
 tab1, tab2 = st.tabs(["Explore by Host product", "Ask the Recommender"])
 
-# -----------------------------
-# TAB 1: Host-based product View
-# -----------------------------
+# ------------------------------
+# TAB 1: Host-based product view
+# ------------------------------
 with tab1:
     st.subheader("Personalized Recos from purchased products")
 
@@ -56,9 +56,9 @@ with tab1:
                     st.markdown("*Relevant option*")
             st.markdown("---")
 
-# -----------------------------
+# -------------------------------
 # TAB 2: AI-guided category recos
-# -----------------------------
+# -------------------------------
 with tab2:
     st.subheader("Ask the AI Recommender: It surfaces unpopular high potential categories")
 
@@ -93,5 +93,4 @@ with tab2:
                     st.markdown(f"Rating: {row['reco_rating']}")
                 #st.markdown(f"[View Product]({row['reco_link']})")
             st.markdown("---")
-
 
